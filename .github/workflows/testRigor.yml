@@ -33,21 +33,17 @@ jobs:
             echo "Response: " $body
             case $code in
               4*|5*)
-                # 400 or 500 errors
                 echo "Error calling API"
                 exit 1
                 ;;
               200)
-                # 200: successfully finished
                 echo "Test finished successfully"
                 exit 0
                 ;;
               227|228)
-                # 227: New - 228: In progress
                 echo "Test is not finished yet"
                 ;;
               230)
-                # 230: Failed
                 echo "Test finished but failed"
                 exit 1
                 ;;
